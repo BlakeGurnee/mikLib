@@ -35,7 +35,10 @@
 #include "mikLib/Drive/PID.h"
 #include "assembly.h"
 #include "mikLib/Drive/chassis.h"
-#include "autons.h"
+#include "Autonomous/autons.h"
+#include "Autonomous/constants.h"
+#include "Autonomous/macros.h"
+#include "Autonomous/skills.h"
 #include "robot-config.h"
 
 #include "mikLib/UI/graphics/drawable.h"
