@@ -10,6 +10,6 @@ std::string blue_right_sawp(bool calibrate, mik::auto_variation var, bool get_na
 
         return "";
     }
-
+    
     return "";
 }
