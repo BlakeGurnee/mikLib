@@ -16,7 +16,7 @@ std::string red_right_winpoint(bool calibrate, mik::auto_variation var, bool get
 
     assembly.intake_motor.spin(fwd, 12, volt);
     chassis.drive_to_point(-23.2, -22.5);
-    wait(.3 sec);
+    wait(.3, sec);
 
     chassis.turn_to_point(-11.1, -10.8);
     assembly.intake_motor.spin(fwd, -12, volt);
@@ -34,7 +34,7 @@ std::string red_right_winpoint(bool calibrate, mik::auto_variation var, bool get
     chassis.turn_to_point(-61.2, -47.4);
 
     assembly.intake_motor.spin(fwd, 12, volt);
-    chassis.drive_distance(30, {.max_voltage = 6, timeout = 1000});
+    chassis.drive_distance(30, {.max_voltage = 6, .timeout = 1000});
 
     chassis.turn_to_point(-29.8, -47.5, {.angle_offset = 180});
     chassis.drive_to_point(-29.8, -47.5);
