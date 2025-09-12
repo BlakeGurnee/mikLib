@@ -14,10 +14,12 @@ std::string red_right_winpoint(bool calibrate, mik::auto_variation var, bool get
 
     chassis.turn_to_point(-23.2, -22.5);
 
+    // Pick up blocks
     assembly.intake_motor.spin(fwd, 12, volt);
     chassis.drive_to_point(-23.2, -22.5);
     wait(.3, sec);
-
+    
+    // Put Them in the center goal
     chassis.turn_to_point(-11.1, -10.8);
     assembly.intake_motor.spin(fwd, -12, volt);
     wait(1, sec);
