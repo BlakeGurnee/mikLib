@@ -3,7 +3,6 @@
 using namespace vex;
 using namespace mik;
 
-<<<<<<< HEAD
 std::string red_right_elim(bool calibrate, mik::auto_variation var, bool get_name)
 {
     if (get_name)
@@ -14,18 +13,11 @@ std::string red_right_elim(bool calibrate, mik::auto_variation var, bool get_nam
     {
         chassis.set_coordinates(0, 0, 0);
         Red_Alliance = true;
-=======
-std::string red_right_elim(bool calibrate, mik::auto_variation var, bool get_name) {   
-    if (get_name) { return "red right elim"; }
-    if (calibrate) {
-        chassis.set_coordinates(-40, 0, 90);
-
->>>>>>> 2f0bba7f6a152f5a74f97abdeeba10c2860119a7
         return "";
     }
     odom_constants();
 
-    assembly.intake_motor.spin(fwd, 12, volt);
+    assembly.intake_motors.spin(fwd, 12, volt);
     chassis.drive_to_point(-23.2, -22.5);
     wait(.3, sec);
 

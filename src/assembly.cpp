@@ -54,6 +54,11 @@ void Assembly::intake_motors_control()
         intakeState = 0;
     }
 
+    if (btnL1_new_press(Controller.ButtonL1.pressing()))
+    {
+        intakeState = 2;
+    }
+
     // Apply motor command based on state
     if (intakeState == 1)
     {
@@ -62,6 +67,11 @@ void Assembly::intake_motors_control()
     else if (intakeState == -1)
     {
         assembly.intake_motors.spin(fwd, 12, volt);
+    }
+    else if (intakeState == 2)
+    {
+        assembly.intake_motors.spin(fwd, 12, volt);
+        assembly.top_intake_motor2.spin(fwd, -12, volt);
     }
     else
     {
