@@ -10,6 +10,7 @@ extern vex::competition Competition;
 
 extern bool calibrating;
 extern bool force_calibrate_inertial;
+extern bool Red_Alliance;
 
 extern Assembly assembly;
 

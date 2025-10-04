@@ -3,15 +3,20 @@
 using namespace vex;
 using namespace mik;
 
-std::string red_left_winpoint(bool calibrate, mik::auto_variation var, bool get_name) { 
+std::string red_left_winpoint(bool calibrate, mik::auto_variation var, bool get_name)
+{
     chassis.mirror_all_auton_y_pos();
-    if (get_name) { return "red left winpoint"; }
-    if (calibrate) {
+    if (get_name)
+    {
+        return "red left winpoint";
+    }
+    if (calibrate)
+    {
         red_right_winpoint(calibrate, var, get_name);
-
+        Red_Alliance = true;
         return "";
     }
     red_right_winpoint(calibrate, var, get_name);
-    
+
     return "";
 }

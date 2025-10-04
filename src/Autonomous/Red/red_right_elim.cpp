@@ -3,11 +3,16 @@
 using namespace vex;
 using namespace mik;
 
-std::string red_right_elim(bool calibrate, mik::auto_variation var, bool get_name) {   
-    if (get_name) { return "red right elim"; }
-    if (calibrate) {
+std::string red_right_elim(bool calibrate, mik::auto_variation var, bool get_name)
+{
+    if (get_name)
+    {
+        return "red right elim";
+    }
+    if (calibrate)
+    {
         chassis.set_coordinates(0, 0, 0);
-
+        Red_Alliance = true;
         return "";
     }
 

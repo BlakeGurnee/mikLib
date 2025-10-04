@@ -3,12 +3,17 @@
 using namespace vex;
 using namespace mik;
 
-std::string blue_right_winpoint(bool calibrate, mik::auto_variation var, bool get_name) {
+std::string blue_right_winpoint(bool calibrate, mik::auto_variation var, bool get_name)
+{
     chassis.mirror_all_auton_x_pos();
-    if (get_name) { return "blue right winpoint(4+3)"; }
-    if (calibrate) {
+    if (get_name)
+    {
+        return "blue right winpoint(4+3)";
+    }
+    if (calibrate)
+    {
         red_right_winpoint(calibrate, var, get_name);
-
+        Red_Alliance = false;
         return "";
     }
     red_right_winpoint(calibrate, var, get_name);

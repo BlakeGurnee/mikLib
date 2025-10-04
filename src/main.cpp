@@ -5,49 +5,60 @@ using namespace mik;
 
 task UI;
 
-static int run_UI() {
+static int run_UI()
+{
     UI_init();
     UI_controller_auton_selector();
     UI_render();
     return 0;
 }
 
-void pre_auton() {
+void pre_auton()
+{
     init();
     default_constants();
     UI = task(run_UI);
 }
 
-void auton(void) {
+void auton(void)
+{
     UI.stop();
     auton_scr->start_auton();
 }
 
-void user_control(void) {
-    while (calibrating) { task::sleep(50); }
+void user_control(void)
+{
+    while (calibrating)
+    {
+        task::sleep(50);
+    }
 
     // How you want your drivetrain to stop during driver
     chassis.set_brake_type(brakeType::coast);
-    
+
     assembly.init();
 
-    while (true) {
-        if (!control_disabled()) {
+    while (true)
+    {
+        if (!control_disabled())
+        {
             // Add your user control code here
-            chassis.control(drive_mode::SPLIT_ARCADE_CURVED);
+            chassis.control(drive_mode::TANK);
             assembly.control();
         }
         task::sleep(5);
     }
 }
 
-int main() {
+int main()
+{
     Competition.autonomous(auton);
     Competition.drivercontrol(user_control);
 
     pre_auton();
 
-    while (true) {
+    while (true)
+    {
         task::sleep(100);
     }
 }
