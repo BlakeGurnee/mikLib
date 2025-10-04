@@ -34,15 +34,12 @@ Chassis chassis(
 	2.75,  // Forward Tracker wheel diameter in inches (negative flips direction)
 	0,	   // Forward Tracker center distance in inches (a positive distance corresponds to a tracker on the right side of the robot, negative is left)
 
-<<<<<<< HEAD
 	-1, // Sideways tracker port (Don't have one)
 	0,	// Sideways tracker wheel diameter in inches (negative flips direction)
 	0,	// Sideways tracker center distance in inches (positive distance is behind the center of the robot, negative is in front)
-=======
     0,  // Sideways tracker port
     0,       // Sideways tracker wheel diameter in inches (negative flips direction)
   	0,     // Sideways tracker center distance in inches (positive distance is behind the center of the robot, negative is in front)
->>>>>>> 2f0bba7f6a152f5a74f97abdeeba10c2860119a7
 
 	mik::distance_reset({
 		// A distance sensor that is mounted on the front of the robot and is offset by 5 inches to the right and 3.5 inches forward from the tracking center
