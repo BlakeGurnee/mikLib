@@ -3,17 +3,18 @@
 using namespace vex;
 
 bool Red_Alliance = true;
+int intakeState = 0; // 0 = stopped, 1 = forward, 2 = lower intake forward + top intake reverse -1 = reverse
 
 // Pass in the devices we want to use
 Assembly::Assembly(
     mik::motor_group intake_motors,
     mik::motor top_intake_motor2,
     vex::optical optical_sensor,
-    mik::piston long_piston) : // Assign the ports to the devices
-                               intake_motors(intake_motors),
-                               top_intake_motor2(top_intake_motor2),
-                               optical_sensor(optical_sensor),
-                               long_piston(long_piston) // Make sure when using a 3 wire device that isnt mik::piston you convert the port. `to_triport(PORT_A)`.
+    mik::piston matchload_piston) : // Assign the ports to the devices
+                                    intake_motors(intake_motors),
+                                    top_intake_motor2(top_intake_motor2),
+                                    optical_sensor(optical_sensor),
+                                    matchload_piston(matchload_piston) // Make sure when using a 3 wire device that isnt mik::piston you convert the port. `to_triport(PORT_A)`.
 {};
 
 // You want to call this function once in the user control function in main.
@@ -27,12 +28,9 @@ void Assembly::init()
 void Assembly::control()
 {
     intake_motors_control();
-    long_piston_control();
+    matchload_piston_control();
     color_sort_control();
 }
-
-int intakeState = 0;
-// 0 = stopped, 1 = forward, -1 = reverse
 
 void Assembly::intake_motors_control()
 {
@@ -62,29 +60,29 @@ void Assembly::intake_motors_control()
     // Apply motor command based on state
     if (intakeState == 1)
     {
-        assembly.intake_motors.spin(fwd, -12, volt);
+        intake_motors.spin(fwd, -12, volt);
     }
     else if (intakeState == -1)
     {
-        assembly.intake_motors.spin(fwd, 12, volt);
+        intake_motors.spin(fwd, 12, volt);
     }
     else if (intakeState == 2)
     {
-        assembly.intake_motors.spin(fwd, 12, volt);
-        assembly.top_intake_motor2.spin(fwd, -12, volt);
+        intake_motors.spin(fwd, 12, volt);
+        top_intake_motor2.spin(fwd, -12, volt);
     }
     else
     {
-        assembly.intake_motors.stop(brake);
+        intake_motors.stop(brake);
     }
 }
 
 // Extends or retracts piston when button A is pressed, can only extend or retract again until button A is released and pressed again
-void Assembly::long_piston_control()
+void Assembly::matchload_piston_control()
 {
     if (btnR1_new_press(Controller.ButtonR1.pressing()))
     {
-        long_piston.toggle();
+        matchload_piston.toggle();
     }
 }
 

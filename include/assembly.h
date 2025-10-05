@@ -4,7 +4,6 @@
 
 using namespace vex;
 
-
 class Assembly
 {
 public:
@@ -12,17 +11,17 @@ public:
         mik::motor_group intake_motors,
         mik::motor top_intake_motor2,
         vex::optical optical_sensor,
-        mik::piston long_piston);
+        mik::piston matchload_piston);
 
     void init();
     void control();
 
     void intake_motors_control();
-    void long_piston_control();
+    void matchload_piston_control();
     void color_sort_control();
 
     mik::motor_group intake_motors;
     mik::motor top_intake_motor2;
     vex::optical optical_sensor;
-    mik::piston long_piston;
+    mik::piston matchload_piston;
 };
