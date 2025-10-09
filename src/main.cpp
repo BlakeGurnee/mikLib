@@ -23,9 +23,10 @@ void pre_auton()
 void auton(void)
 {
     UI.stop();
+    Brain.Screen.clearScreen();
     Brain.Screen.drawImageFromBuffer(mikLib_logo, 0, 0, sizeof(mikLib_logo));
+    Brain.Screen.render(true, true);
     auton_scr->start_auton();
-    Brain.Screen.render();
 }
 
 void user_control(void)
