@@ -2,7 +2,7 @@
 
 #include "vex.h"
 
-// void intake_ring_halfway();
+// void intake_block_halfway();
 
 void intake_forward();
 

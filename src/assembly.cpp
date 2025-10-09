@@ -68,7 +68,7 @@ void Assembly::intake_motors_control()
     }
     else if (intakeState == 2)
     {
-        intake_motors.spin(fwd, 12, volt);
+        intake_motors.spin(fwd, -12, volt);
         top_intake_motor2.spin(fwd, -12, volt);
     }
     else
@@ -80,7 +80,7 @@ void Assembly::intake_motors_control()
 // Extends or retracts piston when button A is pressed, can only extend or retract again until button A is released and pressed again
 void Assembly::matchload_piston_control()
 {
-    if (btnR1_new_press(Controller.ButtonR1.pressing()))
+    if (btnR1_new_press(Controller.ButtonB.pressing()))
     {
         matchload_piston.toggle();
     }

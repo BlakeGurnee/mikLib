@@ -28,7 +28,7 @@ Chassis chassis(
 					  mik::motor(PORT20, false, blue_6_1, "right_back_motor")}),
 
 	PORT5, // Inertial sensor port
-	360,   // Inertial scale, value that reads after turning robot a full 360
+	352,   // Inertial scale, value that reads after turning robot a full 360
 
 	PORT3, // Forward Tracker Port
 	2.75,  // Forward Tracker wheel diameter in inches (negative flips direction)

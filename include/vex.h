@@ -20,7 +20,7 @@
 #include <tuple>
 #include <sstream>
 #include <type_traits>
-#include <iostream> 
+#include <iostream>
 #include <cstddef>
 
 #include "v5.h"
@@ -38,7 +38,7 @@
 #include "Autonomous/autons.h"
 #include "Autonomous/constants.h"
 #include "Autonomous/macros.h"
-//#include "Autonomous/skills.h"
+// #include "Autonomous/skills.h"
 #include "robot-config.h"
 
 #include "mikLib/UI/graphics/drawable.h"

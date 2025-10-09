@@ -4,10 +4,10 @@ using namespace vex;
 using namespace mik;
 
 /*
-void intake_ring_halfway()
+void intake_block_halfway()
 {
     assembly.intake_motor.spin(fwd, 10, volt);
-    vex::task intake_ring_halfway_task([]()
+    vex::task intake_block_halfway_task([]()
                                        {
         vex::distance d(PORT12);
         int timeout_start = Brain.Timer.time(vex::timeUnits::sec);
@@ -29,14 +29,17 @@ void intake_ring_halfway()
 void intake_forward()
 {
     assembly.intake_motors.spin(fwd, 12, volt);
+    assembly.top_intake_motor2.spin(fwd, 12, volt);
 }
 
 void stop_intake()
 {
     assembly.intake_motors.stop(brake);
+    assembly.top_intake_motor2.stop(brake);
 }
 
 void intake_reverse()
 {
     assembly.intake_motors.spin(fwd, -12, volt);
+    assembly.top_intake_motor2.spin(fwd, -12, volt);
 }
